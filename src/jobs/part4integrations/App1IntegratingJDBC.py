@@ -9,7 +9,7 @@ spark = SparkSession.builder \
     .master("local[2]") \
     .getOrCreate()
 
-config = config_loader("/spark-streaming-pyspark/src/config.json")
+config = config_loader("/Users/sagarl/projects/spark-streaming-pyspark/src/config.json")
 dataPath = config["dataPath"]
 driver = config["driver"]
 url = config["url"]
