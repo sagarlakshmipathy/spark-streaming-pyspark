@@ -23,7 +23,6 @@ carsDF = spark.readStream \
 
 
 def foreach_batch_function(df, epoch_id):
-
     return df.write \
         .format("jdbc") \
         .option("driver", driver) \
