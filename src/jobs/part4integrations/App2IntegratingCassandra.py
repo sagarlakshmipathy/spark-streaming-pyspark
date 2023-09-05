@@ -26,6 +26,7 @@ carsDF = spark.readStream \
     .schema(carsSchema) \
     .load(f"{dataPath}/cars")
 
+
 def for_each_batch(df, epoch_id):
     nameHPDF = df.select(col("Name"), col("Horsepower"))
 
