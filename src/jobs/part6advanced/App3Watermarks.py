@@ -1,9 +1,10 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
+from pyspark.sql.types import *
 
 from src.utils import config_loader
 
-config = config_loader("/spark-streaming-pyspark/src/config.json")
+config = config_loader("/Users/sagarl/projects/rockthejvm-pyspark/spark-streaming-pyspark/src/config.json")
 dataPath = config["dataPath"]
 
 spark = SparkSession.builder \
@@ -12,32 +13,33 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 
-# format 3000, blue
-def testWatermarks():
+# format 40000,blue
+def watermarks():
     dataDF = spark.readStream \
         .format("socket") \
         .option("host", "localhost") \
-        .option("port", 12345) \
+        .option("port", 12346) \
         .load()
 
-    stringDataDF = dataDF.select(col("value").cast(StringType()).alias("line"))
+    processedDataDF = dataDF.select(col("value").cast(StringType()).alias("line")) \
+        .withColumn("tokens", split(col("line"), ",")) \
+        .withColumn("created", from_unixtime(col("tokens")[0]).cast(TimestampType())) \
+        .withColumn("color", col("tokens")[1])
 
-    def process_row(row):
-        tokens = row.split(",")
-        timestamp = unix_timestamp(tokens[0])
-        data = tokens[1]
-        return timestamp, data
 
-    processedDF = stringDataDF.rdd.map(process_row()).toDF(["created", "color"])
-
-    watermarkDF = processedDF \
+    watermarkedDF: DataFrame = processedDataDF \
         .withWatermark("created", "2 seconds") \
         .groupBy(window(col("created"), "2 seconds"), col("color")) \
         .count() \
         .select(col("window.*"), col("color"), col("count"))
 
-    return watermarkDF
+    watermarkedDF.writeStream \
+        .format("console") \
+        .outputMode("append") \
+        .trigger(processingTime="2 seconds") \
+        .start() \
+        .awaitTermination()
 
 
 if __name__ == '__main__':
-    pass
+    watermarks()
