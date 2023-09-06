@@ -47,6 +47,26 @@ def numericalAggregations(aggFunction):
         .awaitTermination()
 
 
+def groupNames():
+    lines = spark.readStream \
+        .format("socket") \
+        .option("host", "localhost") \
+        .option("port", 12345) \
+        .load()
+
+    names = lines \
+        .select(col("value").alias("name")) \
+        .groupBy(col("name")) \
+        .count()
+
+    names.writeStream \
+        .format("console") \
+        .outputMode("complete") \
+        .start() \
+        .awaitTermination()
+
+
 if __name__ == '__main__':
     # streamingCount()
-    numericalAggregations(sum)
+    # numericalAggregations(sum)
+    groupNames()

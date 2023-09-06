@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7a9c611-f5bb-495a-97a6-fe56dc6834c4" name="Changes" comment="line count aggregation working">
+    <list default="true" id="d7a9c611-f5bb-495a-97a6-fe56dc6834c4" name="Changes" comment="numerical aggregation working">
       <change beforePath="$PROJECT_DIR$/src/jobs/part2structuredstreaming/App2StreamingAggregations.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/jobs/part2structuredstreaming/App2StreamingAggregations.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -276,7 +276,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693963606170</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="numerical aggregation working">
+      <option name="closed" value="true" />
+      <created>1693964166191</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1693964166191</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -288,6 +296,7 @@
     <MESSAGE value="read from socket working" />
     <MESSAGE value="read from files working" />
     <MESSAGE value="line count aggregation working" />
-    <option name="LAST_COMMIT_MESSAGE" value="line count aggregation working" />
+    <MESSAGE value="numerical aggregation working" />
+    <option name="LAST_COMMIT_MESSAGE" value="numerical aggregation working" />
   </component>
 </project>
