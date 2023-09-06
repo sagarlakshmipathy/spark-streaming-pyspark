@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7a9c611-f5bb-495a-97a6-fe56dc6834c4" name="Changes" comment="read from files working">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jobs/part2structuredstreaming/App1StreamingDataFrames.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/jobs/part2structuredstreaming/App1StreamingDataFrames.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jobs/part2structuredstreaming/App2StreamingAggregations.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="integrating-kafka" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -47,7 +46,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "streaming-df",
+    "git-widget-placeholder": "streaming-aggregations",
     "last_opened_file_path": "/Users/sagarl/projects/spark-streaming-pyspark",
     "settings.editor.selected.configurable": "editing.templates"
   }
@@ -61,7 +60,7 @@
       <recent name="$PROJECT_DIR$/spark-streaming-pyspark" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.App1StreamingDataFrames">
+  <component name="RunManager" selected="Python.App2StreamingAggregations">
     <configuration name="App1IntegratingKafka" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="spark-streaming-pyspark" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -131,7 +130,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="App2ProcessingTimeWindows" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="App2StreamingAggregations" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="spark-streaming-pyspark" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -139,11 +138,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/jobs/part6advanced" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/jobs/part2structuredstreaming" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/jobs/part6advanced/App2ProcessingTimeWindows.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/jobs/part2structuredstreaming/App2StreamingAggregations.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -180,19 +179,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.App2StreamingAggregations" />
       <item itemvalue="Python.App1IntegratingKafka" />
       <item itemvalue="Python.App1StreamingDataFrames" />
       <item itemvalue="Python.App2IntegratingJDBC" />
       <item itemvalue="Python.App3IntegratingCassandra" />
-      <item itemvalue="Python.App2ProcessingTimeWindows" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.App2StreamingAggregations" />
         <item itemvalue="Python.App1StreamingDataFrames" />
         <item itemvalue="Python.App1IntegratingKafka" />
         <item itemvalue="Python.App3IntegratingCassandra" />
         <item itemvalue="Python.App2IntegratingJDBC" />
-        <item itemvalue="Python.App2ProcessingTimeWindows" />
       </list>
     </recent_temporary>
   </component>
