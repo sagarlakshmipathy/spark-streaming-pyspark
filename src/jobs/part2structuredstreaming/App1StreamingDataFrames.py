@@ -1,6 +1,7 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 
+from src.jobs.common.package import stocksSchema
 from src.utils import config_loader
 
 spark = SparkSession.builder \
@@ -30,5 +31,21 @@ def readFromSocket():
         .awaitTermination()
 
 
+def readFromFiles():
+    stocksDF = spark.readStream \
+        .format("csv") \
+        .option("header", "false") \
+        .option("dateFormat", "MMM d yyyy") \
+        .schema(stocksSchema) \
+        .load(f"{dataPath}/stocks")
+
+    stocksDF.writeStream \
+        .format("console") \
+        .outputMode("append") \
+        .start() \
+        .awaitTermination()
+
+
 if __name__ == '__main__':
-    readFromSocket()
+    # readFromSocket()
+    readFromFiles()
