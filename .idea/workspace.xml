@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7a9c611-f5bb-495a-97a6-fe56dc6834c4" name="Changes" comment="Updated config">
+    <list default="true" id="d7a9c611-f5bb-495a-97a6-fe56dc6834c4" name="Changes" comment="read from files working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jobs/part4integrations/App1IntegratingJDBC.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/jobs/part4integrations/App1IntegratingJDBC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jobs/part2structuredstreaming/App1StreamingDataFrames.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/jobs/part2structuredstreaming/App1StreamingDataFrames.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +21,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="integrating-kafka" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -43,7 +47,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "streaming-df",
     "last_opened_file_path": "/Users/sagarl/projects/spark-streaming-pyspark",
     "settings.editor.selected.configurable": "editing.templates"
   }
@@ -57,8 +61,8 @@
       <recent name="$PROJECT_DIR$/spark-streaming-pyspark" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.App2IntegratingCassandra">
-    <configuration name="App1EventTimeWindows" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.App1StreamingDataFrames">
+    <configuration name="App1IntegratingKafka" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="spark-streaming-pyspark" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -66,11 +70,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/jobs/part6advanced" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/jobs/part4integrations" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/jobs/part6advanced/App1EventTimeWindows.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/jobs/part4integrations/App1IntegratingKafka.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -79,7 +83,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="App1IntegratingJDBC" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="App1StreamingDataFrames" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="spark-streaming-pyspark" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/jobs/part2structuredstreaming" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/jobs/part2structuredstreaming/App1StreamingDataFrames.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="App2IntegratingJDBC" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="spark-streaming-pyspark" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -97,34 +122,7 @@
         <option name="region" />
         <option name="useCurrentConnection" value="false" />
       </EXTENSION>
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/jobs/part4integrations/App1IntegratingJDBC.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="App2IntegratingCassandra" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="spark-streaming-pyspark" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="/usr/local/bin/python3.11" />
-      <option name="SDK_NAME" value="Python 3.11" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/jobs/part4integrations" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="software.aws.toolkits.jetbrains.core.execution.PythonAwsConnectionExtension">
-        <option name="credential" />
-        <option name="region" />
-        <option name="useCurrentConnection" value="false" />
-      </EXTENSION>
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/jobs/part4integrations/App2IntegratingCassandra.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/jobs/part4integrations/App2IntegratingJDBC.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -154,19 +152,25 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="App3Watermarks" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="App3IntegratingCassandra" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="spark-streaming-pyspark" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/jobs/part6advanced" />
+      <option name="SDK_HOME" value="/usr/local/bin/python3.11" />
+      <option name="SDK_NAME" value="Python 3.11" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/jobs/part4integrations" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/jobs/part6advanced/App3Watermarks.py" />
+      <EXTENSION ID="software.aws.toolkits.jetbrains.core.execution.PythonAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/jobs/part4integrations/App3IntegratingCassandra.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -176,19 +180,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.App1EventTimeWindows" />
-      <item itemvalue="Python.App1IntegratingJDBC" />
-      <item itemvalue="Python.App2IntegratingCassandra" />
+      <item itemvalue="Python.App1IntegratingKafka" />
+      <item itemvalue="Python.App1StreamingDataFrames" />
+      <item itemvalue="Python.App2IntegratingJDBC" />
+      <item itemvalue="Python.App3IntegratingCassandra" />
       <item itemvalue="Python.App2ProcessingTimeWindows" />
-      <item itemvalue="Python.App3Watermarks" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.App2IntegratingCassandra" />
-        <item itemvalue="Python.App1IntegratingJDBC" />
+        <item itemvalue="Python.App1StreamingDataFrames" />
+        <item itemvalue="Python.App1IntegratingKafka" />
+        <item itemvalue="Python.App3IntegratingCassandra" />
+        <item itemvalue="Python.App2IntegratingJDBC" />
         <item itemvalue="Python.App2ProcessingTimeWindows" />
-        <item itemvalue="Python.App1EventTimeWindows" />
-        <item itemvalue="Python.App3Watermarks" />
       </list>
     </recent_temporary>
   </component>
@@ -209,11 +213,73 @@
       <option name="project" value="LOCAL" />
       <updated>1693940083816</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="working cassandra writes">
+      <option name="closed" value="true" />
+      <created>1693950486636</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1693950486636</updated>
+    </task>
+    <task id="LOCAL-00003" summary="working cassandra writes">
+      <option name="closed" value="true" />
+      <created>1693950655760</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1693950655760</updated>
+    </task>
+    <task id="LOCAL-00004" summary="renamed files">
+      <option name="closed" value="true" />
+      <created>1693950807951</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1693950807951</updated>
+    </task>
+    <task id="LOCAL-00005" summary="read kafka working">
+      <option name="closed" value="true" />
+      <created>1693953129490</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1693953129490</updated>
+    </task>
+    <task id="LOCAL-00006" summary="write to kafka not working">
+      <option name="closed" value="true" />
+      <created>1693960406292</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1693960406292</updated>
+    </task>
+    <task id="LOCAL-00007" summary="read from socket working">
+      <option name="closed" value="true" />
+      <created>1693960997612</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1693960997612</updated>
+    </task>
+    <task id="LOCAL-00008" summary="read from files working">
+      <option name="closed" value="true" />
+      <created>1693961224351</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1693961224351</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updated config" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated config" />
+    <MESSAGE value="working cassandra writes" />
+    <MESSAGE value="renamed files" />
+    <MESSAGE value="read kafka working" />
+    <MESSAGE value="write to kafka not working" />
+    <MESSAGE value="read from socket working" />
+    <MESSAGE value="read from files working" />
+    <option name="LAST_COMMIT_MESSAGE" value="read from files working" />
   </component>
 </project>
