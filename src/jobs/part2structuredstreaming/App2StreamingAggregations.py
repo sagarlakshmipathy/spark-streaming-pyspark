@@ -1,5 +1,6 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
+from pyspark.sql.types import *
 
 from src.utils import config_loader
 
@@ -29,5 +30,23 @@ def streamingCount():
         .awaitTermination()
 
 
+def numericalAggregations(aggFunction):
+    lines = spark.readStream \
+        .format("socket") \
+        .option("host", "localhost") \
+        .option("port", 12345) \
+        .load()
+
+    numbers = lines.select(col("value").cast(IntegerType()).alias("number"))
+    aggreationDF = numbers.select(aggFunction(col("number")).alias("agg_so_far"))
+
+    aggreationDF.writeStream \
+        .format("console") \
+        .outputMode("complete") \
+        .start() \
+        .awaitTermination()
+
+
 if __name__ == '__main__':
-    streamingCount()
+    # streamingCount()
+    numericalAggregations(sum)

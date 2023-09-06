@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7a9c611-f5bb-495a-97a6-fe56dc6834c4" name="Changes" comment="read from files working">
-      <change afterPath="$PROJECT_DIR$/src/jobs/part2structuredstreaming/App2StreamingAggregations.py" afterDir="false" />
+    <list default="true" id="d7a9c611-f5bb-495a-97a6-fe56dc6834c4" name="Changes" comment="line count aggregation working">
+      <change beforePath="$PROJECT_DIR$/src/jobs/part2structuredstreaming/App2StreamingAggregations.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/jobs/part2structuredstreaming/App2StreamingAggregations.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,7 +268,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693961224351</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="line count aggregation working">
+      <option name="closed" value="true" />
+      <created>1693963606170</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1693963606170</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -279,6 +287,7 @@
     <MESSAGE value="write to kafka not working" />
     <MESSAGE value="read from socket working" />
     <MESSAGE value="read from files working" />
-    <option name="LAST_COMMIT_MESSAGE" value="read from files working" />
+    <MESSAGE value="line count aggregation working" />
+    <option name="LAST_COMMIT_MESSAGE" value="line count aggregation working" />
   </component>
 </project>
