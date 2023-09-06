@@ -46,6 +46,39 @@ def readFromFiles():
         .awaitTermination()
 
 
+def demoTriggers():
+    lines = spark.readStream \
+        .format("socket") \
+        .option("host", "localhost") \
+        .option("port", 12345) \
+        .load()
+
+    # run the query every 2 seconds
+    # lines.writeStream \
+    #     .format("console") \
+    #     .outputMode("append") \
+    #     .trigger(processingTime="2 seconds") \
+    #     .start() \
+    #     .awaitTermination()
+
+    # run once
+    # lines.writeStream \
+    #     .format("console") \
+    #     .outputMode("append") \
+    #     .trigger(once=True) \
+    #     .start() \
+    #     .awaitTermination()
+
+    # experimental, every 2 seconds create a batch with whatever is present
+    lines.writeStream \
+        .format("console") \
+        .outputMode("append") \
+        .trigger(continuous="2 seconds") \
+        .start() \
+        .awaitTermination()
+
+
 if __name__ == '__main__':
     # readFromSocket()
-    readFromFiles()
+    # readFromFiles()
+    demoTriggers()
