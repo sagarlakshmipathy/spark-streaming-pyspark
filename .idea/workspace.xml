@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7a9c611-f5bb-495a-97a6-fe56dc6834c4" name="Changes" comment="numerical aggregation working">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d7a9c611-f5bb-495a-97a6-fe56dc6834c4" name="Changes" comment="deleted watermarks from main">
+      <change afterPath="$PROJECT_DIR$/src/jobs/part6advanced/App3Watermarks.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="streaming-joins" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -46,7 +46,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "watermarks",
     "last_opened_file_path": "/Users/sagarl/projects/spark-streaming-pyspark",
     "settings.editor.selected.configurable": "editing.templates"
   }
@@ -284,7 +284,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693964166191</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="deleted watermarks from main">
+      <option name="closed" value="true" />
+      <created>1693980854126</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1693980854126</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -297,6 +305,7 @@
     <MESSAGE value="read from files working" />
     <MESSAGE value="line count aggregation working" />
     <MESSAGE value="numerical aggregation working" />
-    <option name="LAST_COMMIT_MESSAGE" value="numerical aggregation working" />
+    <MESSAGE value="deleted watermarks from main" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted watermarks from main" />
   </component>
 </project>
