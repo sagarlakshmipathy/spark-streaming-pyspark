@@ -14,50 +14,46 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 
-# def debugQuery(query: StreamingQuery):
-#     import time
-#     import threading
-#     def _debug_thread():
-#         for i in range(1, 101):
-#             time.sleep(1)
-#
-#             # Check the type of the query.lastProgress object before accessing the eventTime attribute.
-#             if isinstance(query.lastProgress, dict):
-#                 query_event_time = "[]"
-#             else:
-#                 query_event_time = query.lastProgress.eventTime.toString()
-#
-#             print(f"{i}: {query_event_time}")
-#
-#         thread = threading.Thread(target=_debug_thread)
-#         thread.start()
+def debug_query(query: StreamingQuery):
+    import time
+    import threading
+
+    def _debug_thread():
+        for i in range(1, 101):
+            time.sleep(1)
+            query_event_time = "[]" if query.lastProgress is None else str(query.lastProgress["eventTime"])
+            print(f"{i}: {query_event_time}")
+
+    thread = threading.Thread(target=_debug_thread)
+    thread.start()
+
 
 # format 40000,blue
 def watermarks():
-    dataDF = spark.readStream \
+    data_df = spark.readStream \
         .format("socket") \
         .option("host", "localhost") \
-        .option("port", 12345) \
+        .option("port", 12347) \
         .load()
 
-    processedDataDF = dataDF.select(col("value").cast(StringType()).alias("line")) \
+    processed_data_df = data_df.select(col("value").cast(StringType()).alias("line")) \
         .withColumn("tokens", split(col("line"), ",")) \
         .withColumn("created", from_unixtime(col("tokens")[0]).cast(TimestampType())) \
         .withColumn("color", col("tokens")[1])
 
-    watermarkedDF = processedDataDF \
+    watermarked_df = processed_data_df \
         .withWatermark("created", "2 seconds") \
         .groupBy(window(col("created"), "2 seconds"), col("color")) \
         .count() \
         .select(col("window.*"), col("color"), col("count"))
 
-    query = watermarkedDF.writeStream \
+    query = watermarked_df.writeStream \
         .format("console") \
         .outputMode("append") \
         .trigger(processingTime="2 seconds") \
         .start()
 
-    # debugQuery(query)
+    debug_query(query)
     query.awaitTermination()
 
 
