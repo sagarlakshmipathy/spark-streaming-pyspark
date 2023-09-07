@@ -4,7 +4,7 @@ from pyspark.sql.functions import *
 
 from src.utils import config_loader
 
-config = config_loader("/spark-streaming-pyspark/src/config.json")
+config = config_loader("/Users/sagarl/projects/rockthejvm-pyspark/spark-streaming-pyspark/src/config.json")
 data_path = config["dataPath"]
 
 spark = SparkSession.builder \

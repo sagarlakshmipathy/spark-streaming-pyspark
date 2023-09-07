@@ -13,24 +13,24 @@ config = config_loader("/Users/sagarl/projects/spark-streaming-pyspark/src/confi
 dataPath = config["dataPath"]
 
 
-def streamingCount():
+def streaming_count():
     lines = spark.readStream \
         .format("socket") \
         .option("host", "localhost") \
         .option("port", 12345) \
         .load()
 
-    lineCount = lines.select(count(col("*")).alias("lineCount"))
+    line_count = lines.select(count(col("*")).alias("lineCount"))
 
     # append output mode can only be used with watermarks
-    lineCount.writeStream \
+    line_count.writeStream \
         .format("console") \
         .outputMode("complete") \
         .start() \
         .awaitTermination()
 
 
-def numericalAggregations(aggFunction):
+def numerical_aggregations(agg_function):
     lines = spark.readStream \
         .format("socket") \
         .option("host", "localhost") \
@@ -38,16 +38,16 @@ def numericalAggregations(aggFunction):
         .load()
 
     numbers = lines.select(col("value").cast(IntegerType()).alias("number"))
-    aggreationDF = numbers.select(aggFunction(col("number")).alias("agg_so_far"))
+    aggregation_df = numbers.select(agg_function(col("number")).alias("agg_so_far"))
 
-    aggreationDF.writeStream \
+    aggregation_df.writeStream \
         .format("console") \
         .outputMode("complete") \
         .start() \
         .awaitTermination()
 
 
-def groupNames():
+def group_names():
     lines = spark.readStream \
         .format("socket") \
         .option("host", "localhost") \
@@ -69,4 +69,4 @@ def groupNames():
 if __name__ == '__main__':
     # streamingCount()
     # numericalAggregations(sum)
-    groupNames()
+    group_names()

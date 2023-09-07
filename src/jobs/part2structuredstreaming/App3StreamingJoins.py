@@ -11,72 +11,72 @@ spark = SparkSession.builder \
 config = config_loader("/Users/sagarl/projects/spark-streaming-pyspark/src/config.json")
 dataPath = config["dataPath"]
 
-guitaristsDF = spark.read \
+guitarists_df = spark.read \
     .format("json") \
     .option("inferSchema", True) \
     .load(f"{dataPath}/guitarPlayers")
 
-guitarsDF = spark.read \
+guitars_df = spark.read \
     .format("json") \
     .option("inferSchema", True) \
     .load(f"{dataPath}/guitars")
 
-bandsDF = spark.read \
+bands_df = spark.read \
     .format("json") \
     .option("inferSchema", True) \
     .load(f"{dataPath}/bands")
 
-guitaristsBandsDF = guitaristsDF.join(bandsDF, guitaristsDF.band == bandsDF.id, "inner")
-bandsSchema = bandsDF.schema
-guitaristsSchema = guitaristsDF.schema
+guitaristsBandsDF = guitarists_df.join(bands_df, guitarists_df.band == bands_df.id, "inner")
+bandsSchema = bands_df.schema
+guitaristsSchema = guitarists_df.schema
 
 # guitaristsBandsDF.show()
 # print(bandsSchema)
 
 
-def joinStreamedWithStatic():
+def join_streamed_with_static():
 
     # restricted joins:
     # - stream joining with static: RIGHT outer join/full outer join/right_semi not permitted
     # - static joining with streaming: LEFT outer join/full/left_semi not permitted
 
-    streamedBands = spark.readStream \
+    streamed_bands = spark.readStream \
         .format("socket") \
         .option("host", "localhost") \
         .option("port", 12345) \
         .load()
 
-    streamedBandsDF = streamedBands \
+    streamed_bands_df = streamed_bands \
         .select(from_json(col("value"), bandsSchema).alias("band")) \
         .select(col("band.id").alias("id"),
                 col("band.name").alias("name"),
                 col("band.hometown").alias("hometown"),
                 col("band.year").alias("year"))
 
-    guitaristsBandsJoinCondition = guitaristsDF.band == streamedBandsDF.id
+    guitarists_bands_join_condition = guitarists_df.band == streamed_bands_df.id
 
-    guitaristsBandsDF = guitaristsDF.join(streamedBandsDF, guitaristsBandsJoinCondition, "inner")
+    guitarists_bands_df = guitarists_df.join(streamed_bands_df, guitarists_bands_join_condition, "inner")
 
-    guitaristsBandsDF.writeStream \
+    guitarists_bands_df.writeStream \
         .format("console") \
         .outputMode("append") \
         .start() \
         .awaitTermination()
 
 
-def joinStreamWithStream():
+def join_stream_with_stream():
 
     # - inner joins are supported
     # - left/right outer joins ARE supported, but MUST have watermarks
     # - full outer joins are NOT supported
 
-    streamedBands = spark.readStream \
+    streamed_bands = spark.readStream \
         .format("socket") \
         .option("host", "localhost") \
         .option("port", 12345) \
         .load()
 
-    streamedBandsDF = streamedBands \
+    streamed_bands_df = streamed_bands \
         .select(from_json(col("value"), bandsSchema).alias("band")) \
         .select(
             col("band.id").alias("id"),
@@ -85,13 +85,13 @@ def joinStreamWithStream():
             col("band.year").alias("year")
         )
 
-    streamedGuitarists = spark.readStream \
+    streamed_guitarists = spark.readStream \
         .format("socket") \
         .option("host", "localhost") \
         .option("port", 12346) \
         .load()
 
-    streamedGuitaristsDF = streamedGuitarists \
+    streamed_guitarists_df = streamed_guitarists \
         .select(from_json(col("value"), guitaristsSchema).alias("guitarist")) \
         .select(
             col("guitarist.id").alias("id"),
@@ -100,11 +100,11 @@ def joinStreamWithStream():
             col("guitarist.band").alias("band"),
         )
 
-    guitaristsBandsJoinCondition = streamedGuitaristsDF.band == streamedBandsDF.id
+    guitarists_bands_join_condition = streamed_guitarists_df.band == streamed_bands_df.id
 
-    guitaristsBandsDF = streamedGuitaristsDF.join(streamedBandsDF, guitaristsBandsJoinCondition, "inner")
+    guitarists_bands_df = streamed_guitarists_df.join(streamed_bands_df, guitarists_bands_join_condition, "inner")
 
-    guitaristsBandsDF.writeStream \
+    guitarists_bands_df.writeStream \
         .format("console") \
         .outputMode("append") \
         .start() \
@@ -113,4 +113,4 @@ def joinStreamWithStream():
 
 if __name__ == '__main__':
     # joinStreamedWithStatic()
-    joinStreamWithStream()
+    join_stream_with_stream()

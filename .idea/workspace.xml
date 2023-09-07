@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7a9c611-f5bb-495a-97a6-fe56dc6834c4" name="Changes" comment="PEP fixes">
-      <change beforePath="$PROJECT_DIR$/src/jobs/part6advanced/App1EventTimeWindows.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/jobs/part6advanced/App1EventTimeWindows.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -328,7 +328,47 @@
       <option name="project" value="LOCAL" />
       <updated>1694072365870</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="PEP fixes">
+      <option name="closed" value="true" />
+      <created>1694072623499</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1694072623499</updated>
+    </task>
+    <task id="LOCAL-00019" summary="PEP fixes">
+      <option name="closed" value="true" />
+      <created>1694072755385</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1694072755385</updated>
+    </task>
+    <task id="LOCAL-00020" summary="PEP fixes">
+      <option name="closed" value="true" />
+      <created>1694072784333</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1694072784333</updated>
+    </task>
+    <task id="LOCAL-00021" summary="PEP fixes">
+      <option name="closed" value="true" />
+      <created>1694072958185</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1694072958185</updated>
+    </task>
+    <task id="LOCAL-00022" summary="PEP fixes">
+      <option name="closed" value="true" />
+      <created>1694073025079</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1694073025079</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
