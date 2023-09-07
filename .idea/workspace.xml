@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7a9c611-f5bb-495a-97a6-fe56dc6834c4" name="Changes" comment="working on watermarks" />
+    <list default="true" id="d7a9c611-f5bb-495a-97a6-fe56dc6834c4" name="Changes" comment="watermarks working">
+      <change afterPath="$PROJECT_DIR$/src/jobs/part6advanced/App4DataSender.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jobs/part6advanced/App3Watermarks.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/jobs/part6advanced/App3Watermarks.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,16 +42,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "watermarks",
-    "last_opened_file_path": "/Users/sagarl/projects/spark-streaming-pyspark",
-    "settings.editor.selected.configurable": "editing.templates"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;watermarks&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/sagarl/projects/spark-streaming-pyspark&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/resources" />
@@ -58,7 +61,7 @@
       <recent name="$PROJECT_DIR$/spark-streaming-pyspark" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.App2StreamingAggregations">
+  <component name="RunManager" selected="Python.App3Watermarks">
     <configuration name="App1IntegratingKafka" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="spark-streaming-pyspark" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -101,33 +104,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="App2IntegratingJDBC" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="spark-streaming-pyspark" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="/usr/local/bin/python3.11" />
-      <option name="SDK_NAME" value="Python 3.11" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/jobs/part4integrations" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="software.aws.toolkits.jetbrains.core.execution.PythonAwsConnectionExtension">
-        <option name="credential" />
-        <option name="region" />
-        <option name="useCurrentConnection" value="false" />
-      </EXTENSION>
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/jobs/part4integrations/App2IntegratingJDBC.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="App2StreamingAggregations" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="spark-streaming-pyspark" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -149,25 +125,40 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="App3IntegratingCassandra" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="App3Watermarks" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="spark-streaming-pyspark" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="/usr/local/bin/python3.11" />
-      <option name="SDK_NAME" value="Python 3.11" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/jobs/part4integrations" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/jobs/part6advanced" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="software.aws.toolkits.jetbrains.core.execution.PythonAwsConnectionExtension">
-        <option name="credential" />
-        <option name="region" />
-        <option name="useCurrentConnection" value="false" />
-      </EXTENSION>
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/jobs/part4integrations/App3IntegratingCassandra.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/jobs/part6advanced/App3Watermarks.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="App4DataSender" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="spark-streaming-pyspark" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/jobs/part6advanced" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/jobs/part6advanced/App4DataSender.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -177,19 +168,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.App3Watermarks" />
+      <item itemvalue="Python.App4DataSender" />
       <item itemvalue="Python.App2StreamingAggregations" />
       <item itemvalue="Python.App1IntegratingKafka" />
       <item itemvalue="Python.App1StreamingDataFrames" />
-      <item itemvalue="Python.App2IntegratingJDBC" />
-      <item itemvalue="Python.App3IntegratingCassandra" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.App3Watermarks" />
+        <item itemvalue="Python.App4DataSender" />
         <item itemvalue="Python.App2StreamingAggregations" />
         <item itemvalue="Python.App1StreamingDataFrames" />
         <item itemvalue="Python.App1IntegratingKafka" />
-        <item itemvalue="Python.App3IntegratingCassandra" />
-        <item itemvalue="Python.App2IntegratingJDBC" />
       </list>
     </recent_temporary>
   </component>
@@ -298,7 +289,23 @@
       <option name="project" value="LOCAL" />
       <updated>1694039479765</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="changed the folder types">
+      <option name="closed" value="true" />
+      <created>1694039660132</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1694039660132</updated>
+    </task>
+    <task id="LOCAL-00014" summary="watermarks working">
+      <option name="closed" value="true" />
+      <created>1694042834243</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1694042834243</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -312,6 +319,8 @@
     <MESSAGE value="line count aggregation working" />
     <MESSAGE value="numerical aggregation working" />
     <MESSAGE value="working on watermarks" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on watermarks" />
+    <MESSAGE value="changed the folder types" />
+    <MESSAGE value="watermarks working" />
+    <option name="LAST_COMMIT_MESSAGE" value="watermarks working" />
   </component>
 </project>
