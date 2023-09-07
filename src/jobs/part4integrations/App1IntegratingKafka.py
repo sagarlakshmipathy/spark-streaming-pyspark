@@ -13,8 +13,8 @@ spark = SparkSession.builder \
 
 
 config = config_loader("/Users/sagarl/projects/spark-streaming-pyspark/src/config.json")
-dataPath = config["dataPath"]
-checkpointPath = config["checkpointPath"]
+data_path = config["dataPath"]
+checkpoint_path = config["checkpointPath"]
 
 
 def read_from_kafka():
@@ -37,7 +37,7 @@ def write_to_kafka():
     cars_df = spark.readStream \
         .format("json") \
         .schema(cars_schema) \
-        .load(f"{dataPath}/cars")
+        .load(f"{data_path}/cars")
 
     cars_kafka_df = cars_df.select(
         upper(col("Name")).alias("key"),
@@ -49,11 +49,11 @@ def write_to_kafka():
         .outputMode("append") \
         .option("kafka.bootstrap.servers", "localhost:9092") \
         .option("topic", "rockthejvm") \
-        .option("checkpointLocation", checkpointPath) \
+        .option("checkpointLocation", checkpoint_path) \
         .start() \
         .awaitTermination()
 
 
 if __name__ == '__main__':
-    # readFromKafka()
+    # read_from_kafka()
     write_to_kafka()
