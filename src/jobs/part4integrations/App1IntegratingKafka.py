@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 
-from src.jobs.common.package import carsSchema
+from src.jobs.common.package import cars_schema
 from src.utils import config_loader
 
 spark = SparkSession.builder \
@@ -37,7 +37,7 @@ def read_from_kafka():
 def write_to_kafka():
     cars_df = spark.readStream \
         .format("json") \
-        .schema(carsSchema) \
+        .schema(cars_schema) \
         .load(f"{dataPath}/cars")
 
     cars_kafka_df = cars_df.select(

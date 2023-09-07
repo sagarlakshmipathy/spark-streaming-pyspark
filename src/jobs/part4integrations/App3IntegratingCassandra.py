@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 
-from src.jobs.common.package import carsSchema
+from src.jobs.common.package import cars_schema
 from src.utils import config_loader
 
 spark = SparkSession.builder \
@@ -23,7 +23,7 @@ checkpointPath = config["checkpointPath"]
 
 cars_df = spark.readStream \
     .format("json") \
-    .schema(carsSchema) \
+    .schema(cars_schema) \
     .load(f"{dataPath}/cars")
 
 

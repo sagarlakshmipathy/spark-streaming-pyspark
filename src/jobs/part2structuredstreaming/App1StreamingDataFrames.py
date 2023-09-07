@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 
-from src.jobs.common.package import stocksSchema
+from src.jobs.common.package import stocks_schema
 from src.utils import config_loader
 
 spark = SparkSession.builder \
@@ -36,7 +36,7 @@ def read_from_files():
         .format("csv") \
         .option("header", "false") \
         .option("dateFormat", "MMM d yyyy") \
-        .schema(stocksSchema) \
+        .schema(stocks_schema) \
         .load(f"{dataPath}/stocks")
 
     stocks_df.writeStream \
