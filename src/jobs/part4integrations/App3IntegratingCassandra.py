@@ -21,30 +21,30 @@ config = config_loader("/Users/sagarl/projects/spark-streaming-pyspark/src/confi
 dataPath = config["dataPath"]
 checkpointPath = config["checkpointPath"]
 
-carsDF = spark.readStream \
+cars_df = spark.readStream \
     .format("json") \
     .schema(carsSchema) \
     .load(f"{dataPath}/cars")
 
 
 def for_each_batch(df, epoch_id):
-    nameHPDF = df.select(col("Name"), col("Horsepower"))
+    name_hp_df = df.select(col("Name"), col("Horsepower"))
 
-    nameHPDF.write \
+    name_hp_df.write \
         .format("org.apache.spark.sql.cassandra") \
         .options(table=cassandra_table, keyspace=cassandra_keyspace) \
         .mode("append") \
         .save()
 
 
-def writeStreamToCassandraInBatches(df):
+def write_stream_to_cassandra_in_batches(df):
     df.writeStream \
         .foreachBatch(for_each_batch) \
         .start() \
         .awaitTermination()
 
 
-# def writeStreamToCassandra(df):
+# def write_stream_to_cassandra(df):
 #     df.select(col("Name"), col("Horsepower")) \
 #         .writeStream \
 #         .format("org.apache.spark.sql.cassandra") \
@@ -57,5 +57,5 @@ def writeStreamToCassandraInBatches(df):
 
 
 if __name__ == '__main__':
-    writeStreamToCassandraInBatches(carsDF)
-    # writeStreamToCassandra(carsDF)
+    write_stream_to_cassandra_in_batches(cars_df)
+    # write_stream_to_cassandra(carsDF)
