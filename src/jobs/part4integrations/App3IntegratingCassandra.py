@@ -8,7 +8,7 @@ spark = SparkSession.builder \
     .appName("Integrating Cassandra") \
     .master("local[2]") \
     .config("spark.jars",
-            "/Users/sagarl/projects/spark-essentials-pyspark/dependencies/spark-cassandra-connector_2.12-3.3.0.jar") \
+            "/Users/sagarl/dependencies/pyspark/spark-cassandra-connector_2.12-3.3.0.jar") \
     .config("spark.jars.packages", "com.datastax.spark:spark-cassandra-connector_2.12:3.3.0") \
     .config("spark.cassandra.connection.host", "127.0.0.1") \
     .config("spark.cassandra.connection.port", "9042") \

@@ -5,7 +5,7 @@ from src.utils import config_loader
 
 spark = SparkSession.builder \
     .appName("Integrating JDBC") \
-    .config("spark.jars", "/Users/sagarl/projects/spark-essentials-pyspark/dependencies/postgresql-42.6.0.jar") \
+    .config("spark.jars", "/Users/sagarl/dependencies/pyspark/postgresql-42.6.0.jar") \
     .master("local[2]") \
     .getOrCreate()
 
