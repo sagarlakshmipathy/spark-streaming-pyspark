@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 
-from src.jobs.common.package import stocksSchema
+from src.jobs.common.package import stocks_schema
 from src.utils import config_loader
 
 spark = SparkSession.builder \
@@ -13,40 +13,40 @@ config = config_loader("/Users/sagarl/projects/spark-streaming-pyspark/src/confi
 dataPath = config["dataPath"]
 
 
-def readFromSocket():
+def read_from_socket():
     lines = spark.readStream \
         .format("socket") \
         .option("host", "localhost") \
         .option("port", 12345) \
         .load()
 
-    shortLines = lines.where(length(col("value")) <= 5)
+    short_lines = lines.where(length(col("value")) <= 5)
 
-    print(shortLines.isStreaming)
+    print(short_lines.isStreaming)
 
-    shortLines.writeStream \
+    short_lines.writeStream \
         .format("console") \
         .outputMode("append") \
         .start() \
         .awaitTermination()
 
 
-def readFromFiles():
-    stocksDF = spark.readStream \
+def read_from_files():
+    stocks_df = spark.readStream \
         .format("csv") \
         .option("header", "false") \
         .option("dateFormat", "MMM d yyyy") \
-        .schema(stocksSchema) \
+        .schema(stocks_schema) \
         .load(f"{dataPath}/stocks")
 
-    stocksDF.writeStream \
+    stocks_df.writeStream \
         .format("console") \
         .outputMode("append") \
         .start() \
         .awaitTermination()
 
 
-def demoTriggers():
+def demo_triggers():
     lines = spark.readStream \
         .format("socket") \
         .option("host", "localhost") \
@@ -79,6 +79,6 @@ def demoTriggers():
 
 
 if __name__ == '__main__':
-    # readFromSocket()
-    # readFromFiles()
-    demoTriggers()
+    # read_from_socket()
+    # read_from_files()
+    demo_triggers()

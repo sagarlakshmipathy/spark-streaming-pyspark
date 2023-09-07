@@ -4,8 +4,8 @@ from pyspark.sql.functions import *
 
 from src.utils import config_loader
 
-config = config_loader("/spark-streaming-pyspark/src/config.json")
-dataPath = config["dataPath"]
+config = config_loader("/Users/sagarl/projects/rockthejvm-pyspark/spark-streaming-pyspark/src/config.json")
+data_path = config["dataPath"]
 
 spark = SparkSession.builder \
     .appName("Event Time Windows") \
@@ -14,7 +14,7 @@ spark = SparkSession.builder \
 
 spark.conf.set("spark.sql.session.timeZone", "UTC+02:00")
 
-onlinePurchaseSchema = StructType(
+online_purchase_schema = StructType(
     [
         StructField("id", StringType()),
         StructField("time", TimestampType()),
@@ -24,7 +24,7 @@ onlinePurchaseSchema = StructType(
 )
 
 
-def readPurchaseFromSocket():
+def read_purchase_from_socket():
     df = spark.readStream \
         .format("socket") \
         .option("host", "localhost") \
@@ -32,23 +32,23 @@ def readPurchaseFromSocket():
         .load()
 
     return df \
-        .select(from_json(col("value"), onlinePurchaseSchema).alias("purchase")) \
+        .select(from_json(col("value"), online_purchase_schema).alias("purchase")) \
         .select(col("purchase.*"))
 
 
-def readFromFile():
+def read_from_file():
     df = spark.readStream \
         .format("json") \
-        .schema(onlinePurchaseSchema) \
-        .load(f"{dataPath}/purchases")
+        .schema(online_purchase_schema) \
+        .load(f"{data_path}/purchases")
 
     return df
 
 
-def writePurchasesToConsole():
-    purchasesDF = readPurchaseFromSocket()
+def write_purchases_to_console():
+    purchases_df = read_purchase_from_socket()
 
-    return purchasesDF.writeStream \
+    purchases_df.writeStream \
         .format("console") \
         .outputMode("append") \
         .option("truncate", False) \
@@ -56,15 +56,15 @@ def writePurchasesToConsole():
         .awaitTermination()
 
 
-def aggregatePurchasesBySlidingWindow():
-    purchasesDF = readPurchaseFromSocket()
+def aggregate_purchases_by_sliding_window():
+    purchases_df = read_purchase_from_socket()
 
-    purchasesBySlidingWindow = purchasesDF \
+    purchases_by_sliding_window = purchases_df \
         .groupBy(window(col("time"), "1 day", "1 hour").alias("time")) \
         .agg(sum(col("quantity")).alias("total_quantity")) \
         .orderBy(col("time.start").asc_nulls_last())
 
-    return purchasesBySlidingWindow.writeStream \
+    purchases_by_sliding_window.writeStream \
         .format("console") \
         .outputMode("complete") \
         .option("truncate", False) \
@@ -72,15 +72,15 @@ def aggregatePurchasesBySlidingWindow():
         .awaitTermination()
 
 
-def salesByDay():
-    purchasesDF = readFromFile()
+def sales_by_day():
+    purchases_df = read_from_file()
 
-    salesByDay = purchasesDF \
+    sales_by_day_df = purchases_df \
         .groupBy(window(col("time"), "1 day").alias("day"), col("item")) \
         .agg(sum(col("quantity")).alias("quantity_sold")) \
         .orderBy(col("day.start"), col("quantity_sold").desc_nulls_last())
 
-    return salesByDay.writeStream \
+    sales_by_day_df.writeStream \
         .format("console") \
         .outputMode("complete") \
         .option("truncate", False) \
@@ -88,17 +88,17 @@ def salesByDay():
         .awaitTermination()
 
 
-def salesBy24Hours():
-    purchasesDF = readFromFile()
+def sales_by_24_hours():
+    purchases_df = read_from_file()
 
-    salesBy24HoursWindow = purchasesDF \
+    sales_by_24_hours_window = purchases_df \
         .groupBy(
             window(col("time"), "1 day", "1 hour").alias("time"),
             col("item")) \
         .agg(sum(col("quantity")).alias("total_quantity")) \
         .orderBy(col("time.start"), col("total_quantity").desc_nulls_last())
 
-    return salesBy24HoursWindow.writeStream \
+    sales_by_24_hours_window.writeStream \
         .format("console") \
         .outputMode("complete") \
         .option("truncate", False) \
@@ -107,4 +107,4 @@ def salesBy24Hours():
 
 
 if __name__ == '__main__':
-    salesBy24Hours()
+    sales_by_24_hours()

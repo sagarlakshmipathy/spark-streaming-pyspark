@@ -1,6 +1,6 @@
 from pyspark.sql.types import *
 
-carsSchema = StructType([
+cars_schema = StructType([
     StructField("Name", StringType()),
     StructField("Miles_per_Gallon", DoubleType()),
     StructField("Cylinders", LongType()),
@@ -12,7 +12,7 @@ carsSchema = StructType([
     StructField("Origin", StringType())
 ])
 
-stocksSchema = StructType([
+stocks_schema = StructType([
     StructField("company", StringType()),
     StructField("date", DateType()),
     StructField("value", DoubleType())

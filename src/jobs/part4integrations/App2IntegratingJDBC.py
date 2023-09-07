@@ -1,6 +1,6 @@
 from pyspark.sql import SparkSession
 
-from src.jobs.common.package import carsSchema
+from src.jobs.common.package import cars_schema
 from src.utils import config_loader
 
 spark = SparkSession.builder \
@@ -18,7 +18,7 @@ password = config["password"]
 
 carsDF = spark.readStream \
     .format("json") \
-    .schema(carsSchema) \
+    .schema(cars_schema) \
     .load(f"{dataPath}/cars")
 
 
@@ -33,7 +33,7 @@ def foreach_batch_function(df, epoch_id):
         .save()
 
 
-def writeStreamToPostgres():
+def write_stream_to_postgres():
     carsDF.writeStream \
         .foreachBatch(foreach_batch_function) \
         .start() \
@@ -41,4 +41,4 @@ def writeStreamToPostgres():
 
 
 if __name__ == '__main__':
-    writeStreamToPostgres()
+    write_stream_to_postgres()
