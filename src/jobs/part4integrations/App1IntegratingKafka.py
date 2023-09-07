@@ -17,14 +17,15 @@ config = config_loader("/Users/sagarl/projects/spark-streaming-pyspark/src/confi
 dataPath = config["dataPath"]
 checkpointPath = config["checkpointPath"]
 
-def readFromKafka():
-    kafkaDF = spark.readStream \
+
+def read_from_kafka():
+    kafka_df = spark.readStream \
         .format("kafka") \
         .option("kafka.bootstrap.servers", "localhost:9092") \
         .option("subscribe", "rockthejvm") \
         .load()
 
-    kafkaDF \
+    kafka_df \
         .select(col("topic"), col("value").cast(StringType()).alias("actual_value")) \
         .writeStream \
         .format("console") \
@@ -33,18 +34,18 @@ def readFromKafka():
         .awaitTermination()
 
 
-def writeToKafka():
-    carsDF = spark.readStream \
+def write_to_kafka():
+    cars_df = spark.readStream \
         .format("json") \
         .schema(carsSchema) \
         .load(f"{dataPath}/cars")
 
-    carsKafkaDF = carsDF.select(
+    cars_kafka_df = cars_df.select(
         upper(col("Name")).alias("key"),
         col("Name").alias("value")
         )
 
-    carsKafkaDF.writeStream \
+    cars_kafka_df.writeStream \
         .format("kafka") \
         .outputMode("append") \
         .option("kafka.bootstrap.servers", "localhost:9092") \
@@ -56,4 +57,4 @@ def writeToKafka():
 
 if __name__ == '__main__':
     # readFromKafka()
-    writeToKafka()
+    write_to_kafka()
