@@ -1,3 +1,3 @@
 # spark-streaming-pyspark
 
-This project is a PySpark equivalent of the ROck The JVM spark-streaming course.
+This project is a PySpark equivalent of the Rock The JVM spark-streaming course.
