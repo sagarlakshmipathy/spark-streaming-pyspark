@@ -1,9 +1,0 @@
-{
-  "dataPath": "/Users/sagarl/projects/spark-streaming-pyspark/src/resources/data",
-  "checkpointPath": "/Users/sagarl/projects/spark-streaming-pyspark/src/checkpoints",
-  "outputPath": "/Users/sagarl/projects/spark-streaming-pyspark/src/resources/output",
-  "driver": "org.postgresql.Driver",
-  "url": "jdbc:postgresql://localhost:5432/rtjvm",
-  "user": "docker",
-  "password": "docker"
-}
